@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+  <master auto="start"/>
+<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="/home/user/catkin_ws/src/group_project/src/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="/home/user/catkin_ws/src/group_project/src/config/exploration.yaml" command="load" ns="local_costmap" />
+    <rosparam file="/home/user/catkin_ws/src/group_project/src/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="/home/user/catkin_ws/src/group_project/src/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="/home/user/catkin_ws/src/group_project/src/config/config/trajectory_planner.yaml" command="load" />
+
+    <remap from="cmd_vel" to="cmd_vel"/>
+    <remap from="odom" to="odom"/>
+    <remap from="scan" to="/scan"/>
+    <param name="move_base/DWAPlannerROS/yaw_goal_tolerance" value="1.0"/>
+    <param name="move_base/DWAPlannerROS/xy_goal_tolerance" value="1.0"/>
+
+  </node>
+</launch>
+
+<!-- <arg name = "map_file" default="/home/user/catkin_ws/src/group_project/src/launch" />
+    <node name="map_server" pkg = "map_server" type = "map_server" args = "map_file" /> -->
