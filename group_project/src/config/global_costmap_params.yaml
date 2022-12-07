@@ -6,7 +6,7 @@ global_costmap:
   height: 15
   origin_x: -7.5
   origin_y: -7.5
-  static_map: false
-  rolling_window: true
+  static_map: true
+  rolling_window: false
   inflation_radius: 2.5
   resolution: 0.01
